@@ -1,2 +1,1 @@
-# shush-format
-Text formatter for my projects
+cmake_minimum_required (VERSION 3.8)
