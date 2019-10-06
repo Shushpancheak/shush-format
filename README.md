@@ -1,1 +1,7 @@
-cmake_minimum_required (VERSION 3.8)
+# Shush-format
+A text formatter used in my projects.
+
+## Build
+
+
+## Test
