@@ -47,7 +47,7 @@ static void Itoa(int num, char* buf);
  * @returns The formatted string.
  *
  * @details Available variables:
- * - {!YOUR_NAME} - write your formatted text. Be sure to
+ * - {YOUR_NAME} - write your formatted text. Be sure to
  *   provide a map var_map containing key = "YOUR_NAME", value =
  *   YOUR_VALUE. If it's not found, the value will be "{YOUR_NAME}"
  * - {date} - write current date and time in format yyyy.mm.dd-hh:mm:ss
