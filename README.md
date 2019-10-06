@@ -1,4 +1,4 @@
-# Shush-format
+# shush::format
 A text formatter used in my projects.
 
 ## Build
