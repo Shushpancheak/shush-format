@@ -3,7 +3,7 @@
 #include <map>
 #include <vector>
 #include <ctime>
-
+#include <cstring>
 
 namespace shush {
 /**

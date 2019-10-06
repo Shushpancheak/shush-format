@@ -12,20 +12,27 @@ project (
 manipulations only"
 )
 set (
-  SOURCES 
+  SOURCES
   src/shush-format.cpp
 )
 set (
   PUBLIC_HEADERS
-  include/shush-format.hpp  
+  include/shush-format.hpp
 )
 set (
   LIBRARY_NAME
   ${PROJECT_NAME}
 )
+set (
+  LIBRARY_TYPE
+  STATIC
+  CACHE
+  STRING
+  "Type of library to build. STATIC or SHARED."
+)
 
 add_library (
-  ${LIBRARY_NAME} STATIC
+  ${LIBRARY_NAME} ${LIBRARY_TYPE}
   ${SOURCES}
 )
 set_target_properties (
@@ -33,7 +40,7 @@ set_target_properties (
   VERSION         ${PROJECT_VERSION}
   PUBLIC_HEADER   ${PUBLIC_HEADERS}
 )
-target_include_directories(${LIBRARY_NAME} PRIVATE include)
+target_include_directories(${LIBRARY_NAME} PUBLIC  include)
 target_include_directories(${LIBRARY_NAME} PRIVATE src)
 
 include(GNUInstallDirs)
@@ -48,6 +55,9 @@ install (
   FILES       ${CMAKE_BINARY_DIR}/${LIBRARY_NAME}.pc
   DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/pkgconfig
 )
+
+set(BUILD_TESTS OFF CACHE BOOL "Build tests")
+if (BUILD_TESTS)
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # - - - - - - - - - - - - - GTEST INITIALIZATION- - - - - - - - - - - - - - - -
@@ -70,3 +80,6 @@ add_executable(${UNIT_TESTS_NAME} ${UNIT_TESTS_FILE})
 # Link test executable against gtest & gtest_main
 target_link_libraries(${UNIT_TESTS_NAME} gtest_main ${LIBRARY_NAME})
 add_test(${UNIT_TESTS_NAME} ${UNIT_TESTS_NAME})
+
+endif() # BUILD_TESTS
+

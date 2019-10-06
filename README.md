@@ -4,10 +4,17 @@ A text formatter used in my projects.
 ## Build
 ```shell
 mkdir build && cd build
-cmake ..
+cmake .. # -DBUILD_TESTS=ON to build tests, -DLIBRARY_TYPE=SHARED for building shared library
+make
 ```
 
-## Test
-```shell
+## How to use
+Download the repository and place it into your project directory. In your project's CMakeLists.txt file, insert the following lines:
+```cmake
+...
+add_subdirectory(shush-format)
+...
+target_link_libraries(${PROJECT_NAME} shush-format)
+...
 
 ```
