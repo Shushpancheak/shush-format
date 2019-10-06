@@ -18,3 +18,10 @@ target_link_libraries(${PROJECT_NAME} shush-format)
 ...
 
 ```
+
+## Build documentation
+```shell
+Doxygen
+```
+
+Documentation will be generated in the directory named `docs`.
