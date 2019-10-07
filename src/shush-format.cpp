@@ -103,7 +103,7 @@ void shush::format::GetCurrentDate(char* out_str) noexcept {
   local_time = time(&local_time);
   const auto new_time = *localtime(&local_time);
 
-  memcpy(out_str, "0000.00.00-00:00:00", DATE_LENGTH);
+  memcpy(out_str, "0000.00.00-00.00.00", DATE_LENGTH);
   out_str[DATE_LENGTH] = '\0';
 
   Itoa(new_time.tm_year + 1900, out_str);
