@@ -98,20 +98,19 @@ void shush::format::FormatDecimalInPos(char* const str,
 }
 
 void shush::format::GetCurrentDate(char* out_str) noexcept {
-  struct tm newtime;
   time_t local_time;
 
   local_time = time(&local_time);
-  localtime_r(&local_time, &newtime);
+  const auto new_time = *localtime(&local_time);
 
   memcpy(out_str, "0000.00.00-00:00:00", DATE_LENGTH);
   out_str[DATE_LENGTH] = '\0';
 
-  Itoa(newtime.tm_year + 1900, out_str);
+  Itoa(new_time.tm_year + 1900, out_str);
 
-  FormatDecimalInPos(out_str, 5,  newtime.tm_mon + 1);
-  FormatDecimalInPos(out_str, 8,  newtime.tm_mday);
-  FormatDecimalInPos(out_str, 11, newtime.tm_hour);
-  FormatDecimalInPos(out_str, 14, newtime.tm_min);
-  FormatDecimalInPos(out_str, 17, newtime.tm_sec);
+  FormatDecimalInPos(out_str, 5,  new_time.tm_mon + 1);
+  FormatDecimalInPos(out_str, 8,  new_time.tm_mday);
+  FormatDecimalInPos(out_str, 11, new_time.tm_hour);
+  FormatDecimalInPos(out_str, 14, new_time.tm_min);
+  FormatDecimalInPos(out_str, 17, new_time.tm_sec);
 }

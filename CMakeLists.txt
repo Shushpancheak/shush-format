@@ -79,5 +79,7 @@ add_executable(${UNIT_TESTS_NAME} ${UNIT_TESTS_FILE})
 target_link_libraries(${UNIT_TESTS_NAME} gtest_main ${LIBRARY_NAME})
 add_test(${UNIT_TESTS_NAME} ${UNIT_TESTS_NAME})
 
+set(BUILD_TESTS OFF CACHE BOOL "Build tests" FORCE)
+
 endif() # BUILD_TESTS
 
